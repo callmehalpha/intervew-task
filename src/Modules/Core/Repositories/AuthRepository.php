@@ -10,7 +10,7 @@ use Modules\Core\Entities\Activated;
 use Modules\Core\Entities\PasswordReset;
 use Modules\Users\Interfaces\UserRepositoryInterface;
 
-class AuthRepository
+class AuthRepository implements \Modules\Core\Interfaces\AuthRepositoryInterface
 {
     protected $userRepo;
     protected $activator;
