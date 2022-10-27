@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Module Core</title>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <link rel="icon" href="{{asset('images/logo.png')}}" type="image/png">
+    @stack('meta')
+    <title>@yield('pageName') | {{config('app.name')}}</title>
+    @stack('styles')
+</head>
+<body class="{!!  $bodyClass ?? ''!!}">
 
-       {{-- Laravel Mix - CSS File --}}
-       {{-- <link rel="stylesheet" href="{{ mix('css/core.css') }}"> --}}
+@yield('app')
 
-    </head>
-    <body>
-        @yield('content')
-
-        {{-- Laravel Mix - JS File --}}
-        {{-- <script src="{{ mix('js/core.js') }}"></script> --}}
-    </body>
+@stack('modals')
+@stack('scripts')
+</body>
 </html>
