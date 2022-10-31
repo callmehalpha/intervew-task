@@ -42,7 +42,7 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'verify_peer' => false,
         ],
 
         'ses' => [
@@ -92,8 +92,22 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('SHOP_MAIL_FROM'),
+        'name' => env('MAIL_FROM_NAME')
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global "Admin" Address
+    |--------------------------------------------------------------------------
+    |
+    | General admin related admins, such as order notifications.
+    |
+    */
+
+    'admin' => [
+        'address' => env('ADMIN_MAIL_TO'),
+        'name' => env('ADMIN_MAIL_NAME', 'Admin')
     ],
 
     /*
